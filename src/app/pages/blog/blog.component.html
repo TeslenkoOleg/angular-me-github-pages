@@ -1,9 +1,9 @@
 
 <div class="blog-main-container">
   <div>
-    <app-type-effect [text]="'> SELECT * FROM articles LIMIT ' + articles.length + ';'"
-                     (onTypingEnd)="onTypingEnd($event)"
-    ></app-type-effect>
+    <app-text-container-layout [textArray]="textArray"
+                               (onEndTyping$)="onTypingEnd($event)"
+    ></app-text-container-layout>
   </div>
   <ng-container *ngIf="showTable">
     <div class="table-container">

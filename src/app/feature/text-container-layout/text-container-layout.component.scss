@@ -1,0 +1,11 @@
+.typing-main-container{
+  margin: 20px 0 0 20px;
+  .typing-container{
+    display: flex;
+    .typing-prefix-container{
+      display: flex;
+      min-width: 150px;
+      justify-content: flex-end;
+    }
+  }
+}

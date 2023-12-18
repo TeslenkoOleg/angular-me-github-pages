@@ -1,0 +1,17 @@
+<div class="typing-main-container">
+  <div *ngFor="let text of textArray">
+    <ng-container *ngIf="indexesInTypingProcess.includes(text.id)">
+      <div class="typing-container">
+        <div class="typing-prefix-container">
+          <span>{{text.prefix}}</span>
+          <!-- add empty space -->
+          <span>&nbsp;</span>
+        </div>
+        <div>
+          <app-type-effect [text]="text.text" (onTypingEnd)="onEndTyping(text.id)"></app-type-effect>
+        </div>
+      </div>
+    </ng-container>
+    <br/>
+  </div>
+</div>

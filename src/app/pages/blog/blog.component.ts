@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {TypeEffectComponent} from "../../feature/type-effect/type-effect.component";
+import {IText, TextContainerLayoutComponent} from "../../feature/text-container-layout/text-container-layout.component";
 
 @Component({
   selector: 'app-blog',
   standalone: true,
-  imports: [CommonModule, TypeEffectComponent],
+  imports: [CommonModule, TypeEffectComponent, TextContainerLayoutComponent],
   templateUrl: './blog.component.html',
   styleUrls: ['./blog.component.scss']
 })
@@ -61,17 +62,15 @@ export class BlogComponent {
       url: 'https://medium.com/@teslenkooleg2017/angular-mobile-app-by-cordova-c4864463c49',
     },
   ];
-  public text =
-    ' > Here is you can find some of my articles on Medium:\n\n' +
-    '-> Best Design Principles in Angular (https://medium.com/p/bc8189ee0193)\n\n' +
-    '-> Automatic Application Deployment Using Bitbucket Pipelines (https://medium.com/gitconnected/automatic-application-deployment-using-bitbucket-pipelines-9fa8680e4371)\n\n' +
-    '-> Stop Using Slack for Sensitive Information (https://medium.com/gitconnected/stop-using-slack-for-sensitive-information-ae91b9f1769b)\n\n' +
-    '-> How to Integrate Third-Party SDK into Angular App (https://medium.com/p/da34d03c9d98)\n\n' +
-    '-> Fade in(out) Animations in Angular image (https://medium.com/p/31a80949cd2e)\n\n' +
-    '-> Memory Leak in Node.js Apps (https://medium.com/towardsdev/ram-in-node-memory-leak-5cfca356ddcc)\n\n' +
-    '-> Mobile App using JavaScript / Angular (https://medium.com/@teslenkooleg2017/angular-mobile-app-by-cordova-c4864463c49)';
+  public textArray: IText[] = [
+    {
+      text: 'SELECT * FROM articles LIMIT ' + this.articles.length + ';',
+      id: 1,
+      prefix: 'oleh@teslenko> '
+    }
+  ];
   public showTable = false;
-  onTypingEnd(isTypingEnd: boolean) {
-    this.showTable = isTypingEnd;
+  onTypingEnd(textId: number) {
+    this.showTable = true;
   }
 }
