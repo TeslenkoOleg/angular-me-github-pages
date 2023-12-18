@@ -1,0 +1,31 @@
+
+<div class="blog-main-container">
+  <div>
+    <app-type-effect [text]="'> SELECT * FROM articles LIMIT ' + articles.length + ';'"
+                     (onTypingEnd)="onTypingEnd($event)"
+    ></app-type-effect>
+  </div>
+  <ng-container *ngIf="showTable">
+    <div class="table-container">
+
+      <div class="one-row header">
+        <div *ngFor="let header of tableHeaders" [ngClass]="'one-cell ' + header.class">
+          <span>{{header.title}}</span>
+        </div>
+      </div>
+      <div class="one-row" *ngFor="let article of articles" >
+        <div class="one-cell id">
+          <span>{{article.id}}</span>
+        </div>
+        <div class="one-cell title">
+          <span>{{article.title}}</span>
+        </div>
+        <div class="one-cell url">
+          <span>{{article.url}}</span>
+        </div>
+      </div>
+    </div>
+    <span class="table-query-status">{{articles.length}} rows in set (0.00 sec)</span>
+  </ng-container>
+
+</div>
