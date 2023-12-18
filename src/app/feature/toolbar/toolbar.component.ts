@@ -21,6 +21,9 @@ export class ToolbarComponent{
     {name: '~/contact', url: '/contact'},
   ];
   setActiveTab(tab: string): void {
+    if (tab === '/'){
+        tab = '/about';
+    }
     this.activeTab = tab;
   }
   constructor(public router: Router) {
