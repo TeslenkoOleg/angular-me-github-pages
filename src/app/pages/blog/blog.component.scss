@@ -1,6 +1,7 @@
 .blog-main-container{
   display: flex;
   flex-direction: column;
+  overflow-wrap: anywhere;
   .table-container{
     width: auto;
     display: flex;

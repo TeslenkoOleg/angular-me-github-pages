@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 export class TypeEffectComponent implements OnInit{
   @Input() text!: string;
   currentText = '';
-  @Input() public speed: number = 50; // Adjust the typing speed (milliseconds)
+  @Input() public speed: number = 55; // Adjust the typing speed (milliseconds)
   private lineBreakDelay: number = 500; // Adjust the delay between line breaks (milliseconds)
   public terminalCursorClass = 'terminal-cursor';
   @Output() public onTypingEnd: EventEmitter<boolean> = new EventEmitter<boolean>();
