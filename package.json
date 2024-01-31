@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "publish": "ng build -c production --base-href \"https://oleh.t-slen.com\" && cp CNAME dist/ && ngh --dir=dist"
   },
   "private": true,
   "dependencies": {

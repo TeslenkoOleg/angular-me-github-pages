@@ -11,7 +11,7 @@ export interface IText {
 @Component({
   selector: 'app-text-container-layout',
   standalone: true,
-    imports: [CommonModule, TypeEffectComponent],
+  imports: [CommonModule, TypeEffectComponent],
   templateUrl: './text-container-layout.component.html',
   styleUrls: ['./text-container-layout.component.scss']
 })
