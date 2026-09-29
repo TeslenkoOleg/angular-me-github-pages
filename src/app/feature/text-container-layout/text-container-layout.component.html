@@ -1,4 +1,5 @@
 <div class="typing-main-container">
+  <button *ngIf="typedCount < textArray.length" class="skip-button" type="button" (click)="skip()">[skip &#8629;]</button>
   <div *ngFor="let text of textArray; let i = index">
     <ng-container *ngIf="i <= typedCount">
       <div class="typing-container">
@@ -8,7 +9,10 @@
           <span>&nbsp;</span>
         </div>
         <div>
-          <a *ngIf="text.link && i < typedCount; else typing" [href]="text.link" target="_blank" rel="noopener noreferrer">{{text.text}}</a>
+          <ng-container *ngIf="i < typedCount; else typing">
+            <a *ngIf="text.link; else plainText" [href]="text.link" target="_blank" rel="noopener noreferrer">{{text.text}}</a>
+            <ng-template #plainText><span>{{text.text}}</span></ng-template>
+          </ng-container>
           <ng-template #typing>
             <app-type-effect [text]="text.text" (typingEnd)="onTypingEnd(i)"></app-type-effect>
           </ng-template>

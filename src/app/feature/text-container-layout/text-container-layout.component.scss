@@ -1,5 +1,21 @@
 .typing-main-container{
   margin: 20px 0 0 20px;
+  .skip-button {
+    // sits just above the fixed 40px footer
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    padding: 2px 8px;
+    font: inherit;
+    color: #aaa;
+    background: #000;
+    border: 1px solid #555;
+    cursor: pointer;
+    &:hover, &:focus-visible {
+      color: #fff;
+      border-color: #fff;
+    }
+  }
   .typing-container{
     display: flex;
     overflow-wrap: anywhere;
