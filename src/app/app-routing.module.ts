@@ -8,6 +8,11 @@ const routes: Routes = [
     title: 'About'
   },
   {
+    path: 'projects',
+    loadComponent: () => import('./pages/projects/projects.component').then(c => c.ProjectsComponent),
+    title: 'Projects'
+  },
+  {
     path: 'blog',
     loadComponent: () => import('./pages/blog/blog.component').then(c => c.BlogComponent),
     title: 'Blog'

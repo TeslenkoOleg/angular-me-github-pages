@@ -11,6 +11,7 @@ import {NgForOf} from "@angular/common";
 export class ToolbarComponent{
   tabs = [
     {name: '~/about', url: '/about'},
+    {name: '~/projects', url: '/projects'},
     {name: '~/blog', url: '/blog'},
     {name: '~/contact', url: '/contact'},
   ];
