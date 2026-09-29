@@ -2,7 +2,7 @@
 <div class="blog-main-container">
   <div>
     <app-text-container-layout [textArray]="textArray"
-                               (onEndTyping$)="onTypingEnd($event)"
+                               (typingEnd)="onTypingEnd()"
     ></app-text-container-layout>
   </div>
   <ng-container *ngIf="showTable">
@@ -21,7 +21,7 @@
           <span>{{article.title}}</span>
         </div>
         <div class="one-cell url">
-          <span>{{article.url}}</span>
+          <a [href]="article.url" target="_blank" rel="noopener noreferrer">{{article.url}}</a>
         </div>
       </div>
     </div>

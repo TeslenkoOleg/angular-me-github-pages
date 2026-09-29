@@ -9,14 +9,6 @@
     flex-direction: column;
     gap: 5px;
     border-bottom: 1px dashed #ddd;
-    .one-header-row{
-      display: flex;
-      flex-direction: row;
-      padding-bottom: 5px;
-      padding-top: 5px;
-      border-bottom: 1px dashed #ddd;
-      border-top: 1px dashed #ddd;
-    }
     .one-row{
       display: flex;
       flex-direction: row;
@@ -52,9 +44,16 @@
           border-right: 1px solid #ddd;
         }
 
-        span {
+        span, a {
           margin-left: 10px;
           margin-right: 10px;
+        }
+
+        a {
+          color: #fff;
+          &:hover {
+            text-decoration: none;
+          }
         }
       }
     }

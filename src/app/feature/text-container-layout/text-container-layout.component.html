@@ -1,6 +1,6 @@
 <div class="typing-main-container">
-  <div *ngFor="let text of textArray">
-    <ng-container *ngIf="indexesInTypingProcess.includes(text.id)">
+  <div *ngFor="let text of textArray; let i = index">
+    <ng-container *ngIf="i <= typedCount">
       <div class="typing-container">
         <div class="typing-prefix-container">
           <span>{{text.prefix}}</span>
@@ -8,8 +8,10 @@
           <span>&nbsp;</span>
         </div>
         <div>
-<!--          <terminal-text-typing [text]="text.text" (onTypingEnd)="onEndTyping(text.id)"></terminal-text-typing>-->
-          <app-type-effect [text]="text.text" (onTypingEnd)="onEndTyping(text.id)"></app-type-effect>
+          <a *ngIf="text.link && i < typedCount; else typing" [href]="text.link" target="_blank" rel="noopener noreferrer">{{text.text}}</a>
+          <ng-template #typing>
+            <app-type-effect [text]="text.text" (typingEnd)="onTypingEnd(i)"></app-type-effect>
+          </ng-template>
         </div>
       </div>
     </ng-container>

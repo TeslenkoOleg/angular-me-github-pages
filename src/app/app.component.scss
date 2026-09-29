@@ -2,8 +2,10 @@
   font-family: 'Courier New', monospace;
   background-color: #000;
   color: #fff;
+  box-sizing: border-box;
   height: 100%;
+  // keep content clear of the fixed 40px footer
+  padding-bottom: 40px;
   display: flex;
   flex-direction: column;
 }
-

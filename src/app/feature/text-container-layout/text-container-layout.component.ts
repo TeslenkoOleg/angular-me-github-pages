@@ -4,9 +4,9 @@ import {TypeEffectComponent} from "../type-effect/type-effect.component";
 
 export interface IText {
   text: string;
-  id: number;
   prefix: string;
-
+  // when set, the line becomes a link once it has finished typing
+  link?: string;
 }
 @Component({
   selector: 'app-text-container-layout',
@@ -16,13 +16,12 @@ export interface IText {
   styleUrls: ['./text-container-layout.component.scss']
 })
 export class TextContainerLayoutComponent {
-  @Input() textArray!: IText[];
-  indexesInTypingProcess: number[] = [1];
-  @Output() onEndTyping$: EventEmitter<number> = new EventEmitter<number>();
-  onEndTyping(id: number) {
-    this.indexesInTypingProcess.push(id+1);
-    this.onEndTyping$.emit(id);
+  @Input() textArray: IText[] = [];
+  // number of lines that finished typing; line with this index is the one being typed
+  typedCount = 0;
+  @Output() typingEnd: EventEmitter<number> = new EventEmitter<number>();
+  onTypingEnd(index: number) {
+    this.typedCount = index + 1;
+    this.typingEnd.emit(index);
   }
-
-
 }

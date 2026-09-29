@@ -1,8 +1,3 @@
-<!--<div class="toolbar-brand">-->
-<!--  <div class="tab-brand">#olehteslenko</div>-->
-<!--</div>-->
-<div class="toolbar">
-  <ng-container *ngFor="let tab of tabs">
-    <div class="tab" [routerLink]="tab.url" [class.active]="activeTab === tab.url" (click)="setActiveTab(tab.url)">{{tab.name}}</div>
-  </ng-container>
-</div>
+<nav class="toolbar">
+  <a *ngFor="let tab of tabs" class="tab" [routerLink]="tab.url" routerLinkActive="active">{{tab.name}}</a>
+</nav>

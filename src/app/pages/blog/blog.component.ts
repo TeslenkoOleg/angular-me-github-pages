@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {TypeEffectComponent} from "../../feature/type-effect/type-effect.component";
 import {IText, TextContainerLayoutComponent} from "../../feature/text-container-layout/text-container-layout.component";
 
 @Component({
   selector: 'app-blog',
   standalone: true,
-  imports: [CommonModule, TypeEffectComponent, TextContainerLayoutComponent],
+  imports: [CommonModule, TextContainerLayoutComponent],
   templateUrl: './blog.component.html',
   styleUrls: ['./blog.component.scss']
 })
@@ -65,12 +64,11 @@ export class BlogComponent {
   public textArray: IText[] = [
     {
       text: 'SELECT * FROM articles LIMIT ' + this.articles.length + ';',
-      id: 1,
       prefix: 'oleh@teslenko> '
     }
   ];
   public showTable = false;
-  onTypingEnd(textId: number) {
+  onTypingEnd() {
     this.showTable = true;
   }
 }

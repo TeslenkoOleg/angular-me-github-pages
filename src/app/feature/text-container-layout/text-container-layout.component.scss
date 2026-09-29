@@ -8,5 +8,11 @@
       min-width: 150px;
       justify-content: flex-end;
     }
+    a {
+      color: #fff;
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 }
